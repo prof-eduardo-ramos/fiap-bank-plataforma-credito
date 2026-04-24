@@ -7,6 +7,8 @@ import br.com.fiap.bank.plataformacredito.application.PlataformaCreditoApplicati
 
 public class PlataformaCreditoPresentation {
 
+    private static PlataformaCreditoPresentation instancia;
+
     private final PlataformaCreditoApplication plataformaCreditoApplication;
 
     private PlataformaCreditoPresentation(PlataformaCreditoApplication plataformaCreditoApplication) {
@@ -14,7 +16,10 @@ public class PlataformaCreditoPresentation {
     }
 
     public static PlataformaCreditoPresentation novaInstancia() {
-        return new PlataformaCreditoPresentation(new PlataformaCreditoApplication());
+        if (instancia == null) {
+            instancia = new PlataformaCreditoPresentation(PlataformaCreditoApplication.novaInstancia());
+        }
+        return instancia;
     }
 
     public void iniciar() {
