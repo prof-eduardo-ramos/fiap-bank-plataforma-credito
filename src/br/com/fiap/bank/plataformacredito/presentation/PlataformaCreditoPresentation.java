@@ -1,9 +1,13 @@
 package br.com.fiap.bank.plataformacredito.presentation;
 
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import br.com.fiap.bank.plataformacredito.application.PlataformaCreditoApplication;
+import br.com.fiap.bank.plataformacredito.presentation.view.PropostaPessoaFisicaViewer;
+import br.com.fiap.bank.plataformacredito.presentation.view.PropostaPessoaJuridicaViewer;
 
 public class PlataformaCreditoPresentation {
 
@@ -24,8 +28,9 @@ public class PlataformaCreditoPresentation {
 
     public void iniciar() {
         System.out.println("Bem-vindo ao sistema de plataforma de crédito!");
-        System.out.println("1 - Criar proposta");
-        System.out.println("2 - Sair");
+        System.out.println("1 - Criar proposta Pessoa Física");
+        System.out.println("2 - Criar proposta Pessoa Física");
+        System.out.println("3 - Sair");
         System.out.print("Digite sua opção: ");
 
         Scanner input = new Scanner(System.in);
@@ -33,9 +38,12 @@ public class PlataformaCreditoPresentation {
 
         switch (opcao) {
             case 1:
-                criarProposta(input);
+                criarPropostaPessoaFisica(input);
                 break;
             case 2:
+                criarPropostaPessoaJuridica(input);
+                break;
+            case 3:
                 System.out.println("Até logo!");
                 break;
             default:
@@ -45,16 +53,19 @@ public class PlataformaCreditoPresentation {
         input.close();
     }
 
-    private void criarProposta(Scanner input) {
-        System.out.print("Digite o nome do cliente: ");
-        String nome = input.next();
+    private void criarPropostaPessoaJuridica(Scanner input) {
+        Map<String, Object> dadosProposta = new HashMap<>();
+        PropostaPessoaJuridicaViewer.novaInstancia().executar(input, dadosProposta);
+        this.criarProposta(input, dadosProposta);
+    }
 
-        System.out.print("Digite a data de nascimento do cliente: ");
-        String dataNascimento = input.next();
+    private void criarPropostaPessoaFisica(Scanner input) {
+        Map<String, Object> dadosProposta = new HashMap<>();
+        PropostaPessoaFisicaViewer.novaInstancia().executar(input, dadosProposta);
+        this.criarProposta(input, dadosProposta);
+    }
 
-        System.out.print("Digite o CPF do cliente: ");
-        String cpf = input.next();
-
+    private void criarProposta(Scanner input, Map<String, Object> dadosProposta) {
         System.out.print("Digite o valor solicitado: ");
         String valorSolicitado = input.next();
 
@@ -64,8 +75,9 @@ public class PlataformaCreditoPresentation {
         String codigo = "PROPOSTA-" + LocalDate.now().getYear() + LocalDate.now().getMonthValue()
                 + LocalDate.now().getDayOfMonth();
 
-        plataformaCreditoApplication.criarProposta(codigo, nome, dataNascimento, cpf, valorSolicitado,
-                quantidadeParcelas);
+        // plataformaCreditoApplication.criarProposta(codigo, nome, dataNascimento, cpf,
+        // valorSolicitado,
+        // quantidadeParcelas);
     }
 
 }
