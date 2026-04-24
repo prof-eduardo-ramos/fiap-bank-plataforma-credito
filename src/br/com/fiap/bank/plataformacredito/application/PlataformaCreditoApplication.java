@@ -1,10 +1,13 @@
 package br.com.fiap.bank.plataformacredito.application;
 
+import static br.com.fiap.bank.plataformacredito.util.ClienteFactory.novoClientePessoaFisica;
+import static br.com.fiap.bank.plataformacredito.util.ClienteFactory.novoCpf;
+import static br.com.fiap.bank.plataformacredito.util.ContaFactory.novaContaCorrente;
+
 import java.time.LocalDate;
 
 import br.com.fiap.bank.plataformacredito.domain.entidades.Cliente;
 import br.com.fiap.bank.plataformacredito.domain.entidades.Conta;
-import br.com.fiap.bank.plataformacredito.util.ClienteFactory;
 
 public class PlataformaCreditoApplication {
 
@@ -27,9 +30,9 @@ public class PlataformaCreditoApplication {
         String[] splittedCpf = cpf.split("-");
         String numeroCpf = splittedCpf[0];
         Integer digitoVerificador = Integer.valueOf(splittedCpf[1]);
-        Conta conta = ClienteFactory.novaConta("0001", "123456", "0", LocalDate.now());
-        Cliente cliente = ClienteFactory.novoClientePessoaFisica(nome, LocalDate.parse(dataNascimento),
-                ClienteFactory.novoCpf(numeroCpf, digitoVerificador), conta);
+        Conta conta = novaContaCorrente("0001", "123456", "0", LocalDate.now());
+        Cliente cliente = novoClientePessoaFisica(nome, LocalDate.parse(dataNascimento),
+                novoCpf(numeroCpf, digitoVerificador), conta);
 
     }
 

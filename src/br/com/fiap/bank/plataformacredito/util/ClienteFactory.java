@@ -28,8 +28,4 @@ public final class ClienteFactory {
         return new ClientePessoaJuridica(nomeFantasia, razaoSocial, dataConstituicao, cnpj, conta);
     }
 
-    public static Conta novaConta(String agencia, String numero, String digitoVerificador, LocalDate dataAbertura) {
-        return new Conta(agencia, numero, digitoVerificador, dataAbertura);
-    }
-
 }
