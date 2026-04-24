@@ -16,10 +16,12 @@ public class PlataformaCreditoApplication {
         String[] splittedCpf = cpf.split("-");
         String numeroCpf = splittedCpf[0];
         Integer digitoVerificador = Integer.valueOf(splittedCpf[1]);
-        Cliente cliente = new Cliente(nome, LocalDate.parse(dataNascimento), new CPF(numeroCpf, digitoVerificador));
+        // Cliente cliente = new Cliente(nome, LocalDate.parse(dataNascimento), new
+        // CPF(numeroCpf, digitoVerificador));
 
-        Proposta proposta = new Proposta(codigo, new BigDecimal(valorSolicitado), Integer.valueOf(quantidadeParcelas),
-                cliente);
+        // Proposta proposta = new Proposta(codigo, new BigDecimal(valorSolicitado),
+        // Integer.valueOf(quantidadeParcelas),
+        // cliente);
     }
 
 }
