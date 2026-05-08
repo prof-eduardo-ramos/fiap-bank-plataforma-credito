@@ -1,22 +1,21 @@
 package br.com.fiap.bank.plataformacredito.model.entidades;
 
+import static br.com.fiap.bank.plataformacredito.model.entidades.StatusProposta.APROVADA;
+import static br.com.fiap.bank.plataformacredito.model.entidades.StatusProposta.CANCELADA;
+import static br.com.fiap.bank.plataformacredito.model.entidades.StatusProposta.PENDENTE;
+import static br.com.fiap.bank.plataformacredito.model.entidades.StatusProposta.REJEITADA;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class Proposta extends BaseEntity {
-
-    public static final String STATUS_PENDENTE = "PENDENTE";
-    public static final String STATUS_APROVADA = "APROVADA";
-    public static final String STATUS_REJEITADA = "REJEITADA";
-    public static final String STATUS_CANCELADA = "CANCELADA";
 
     private final static Integer DIAS_VALIDADE_PADRAO_PROPOSTA = 7;
 
     private final Cliente cliente;
 
     private String codigo;
-    private String status;
+    private StatusProposta status;
     private BigDecimal valorSolicitado;
     private Integer quantidadeParcelas;
     private LocalDate dataValidade;
@@ -28,16 +27,15 @@ public class Proposta extends BaseEntity {
         this.valorSolicitado = valorSolicitado;
         this.quantidadeParcelas = quantidadeParcelas;
         this.cliente = cliente;
-        this.dataCriacao = LocalDate.now();
         this.dataValidade = this.dataCriacao.plusDays(DIAS_VALIDADE_PADRAO_PROPOSTA);
-        this.status = "PENDENTE";
+        this.status = PENDENTE;
     }
 
     public String getCodigo() {
         return codigo;
     }
 
-    public String getStatus() {
+    public StatusProposta getStatus() {
         return status;
     }
 
@@ -62,16 +60,16 @@ public class Proposta extends BaseEntity {
     }
 
     public void aprovar() {
-        this.status = STATUS_APROVADA;
+        this.status = APROVADA;
     }
 
     public void rejeitar(String motivo) {
-        this.status = STATUS_REJEITADA;
+        this.status = REJEITADA;
         this.motivoRejeicao = motivo;
     }
 
     public void cancelar() {
-        this.status = STATUS_CANCELADA;
+        this.status = CANCELADA;
     }
 
 }
