@@ -8,15 +8,13 @@ public class ClientePessoaJuridica extends Cliente {
     private final String nomeFantasia;
     private final String razaoSocial;
     private final LocalDate dataConstituicao;
-    private final CNPJ cnpj;
 
     public ClientePessoaJuridica(String nomeFantasia, String razaoSocial, LocalDate dataConstituicao, CNPJ cnpj,
             Conta conta) {
-        super(conta);
+        super(cnpj, conta);
         this.nomeFantasia = nomeFantasia;
         this.razaoSocial = razaoSocial;
         this.dataConstituicao = dataConstituicao;
-        this.cnpj = cnpj;
     }
 
     public String getNomeFantasia() {
@@ -31,7 +29,4 @@ public class ClientePessoaJuridica extends Cliente {
         return dataConstituicao;
     }
 
-    public CNPJ getCnpj() {
-        return cnpj;
-    }
 }

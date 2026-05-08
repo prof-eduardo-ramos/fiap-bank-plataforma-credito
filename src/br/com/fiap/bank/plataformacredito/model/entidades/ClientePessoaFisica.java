@@ -7,13 +7,11 @@ import br.com.fiap.bank.plataformacredito.model.valueobjects.CPF;
 public class ClientePessoaFisica extends Cliente {
     private final String nome;
     private final LocalDate dataNascimento;
-    private final CPF cpf;
 
     public ClientePessoaFisica(String nome, LocalDate dataNascimento, CPF cpf, Conta conta) {
-        super(conta);
+        super(cpf, conta);
         this.nome = nome;
         this.dataNascimento = dataNascimento;
-        this.cpf = cpf;
     }
 
     public String getNome() {
@@ -24,7 +22,4 @@ public class ClientePessoaFisica extends Cliente {
         return dataNascimento;
     }
 
-    public CPF getCpf() {
-        return cpf;
-    }
 }

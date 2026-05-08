@@ -7,11 +7,12 @@ public abstract class Documento {
     protected final Integer digitoVerificador;
 
     public Documento(String numero, Integer digitoVerificador) {
-        if (numero == null) {
-            throw new IllegalArgumentException("Documento inválido");
+        if (numero == null || numero.isEmpty()) {
+            throw new IllegalArgumentException("Número do documento inválido");
         }
+
         if (digitoVerificador == null) {
-            throw new IllegalArgumentException("Documento inválido");
+            throw new IllegalArgumentException("Dígito verificador inválido");
         }
 
         this.numero = numero;
