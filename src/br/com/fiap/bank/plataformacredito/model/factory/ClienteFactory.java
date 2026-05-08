@@ -1,4 +1,4 @@
-package br.com.fiap.bank.plataformacredito.util;
+package br.com.fiap.bank.plataformacredito.model.factory;
 
 import java.time.LocalDate;
 

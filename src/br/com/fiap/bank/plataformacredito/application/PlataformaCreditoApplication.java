@@ -1,8 +1,8 @@
 package br.com.fiap.bank.plataformacredito.application;
 
-import static br.com.fiap.bank.plataformacredito.util.ClienteFactory.novoClientePessoaFisica;
-import static br.com.fiap.bank.plataformacredito.util.ClienteFactory.novoCpf;
-import static br.com.fiap.bank.plataformacredito.util.ContaFactory.novaContaCorrente;
+import static br.com.fiap.bank.plataformacredito.model.factory.ClienteFactory.novoClientePessoaFisica;
+import static br.com.fiap.bank.plataformacredito.model.factory.ClienteFactory.novoCpf;
+import static br.com.fiap.bank.plataformacredito.model.factory.ContaFactory.novaContaCorrente;
 
 import java.time.LocalDate;
 
