@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import br.com.fiap.bank.plataformacredito.domain.valueobjects.CNPJ;
 
-public class ClientePessoaJuridica extends Cliente {
+public final class ClientePessoaJuridica extends Cliente {
     private final String nomeFantasia;
     private final String razaoSocial;
     private final LocalDate dataConstituicao;

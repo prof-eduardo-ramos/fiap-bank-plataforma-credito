@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import br.com.fiap.bank.plataformacredito.domain.valueobjects.AvaliacaoRisco;
 import br.com.fiap.bank.plataformacredito.domain.valueobjects.CPF;
 
-public class ClientePessoaFisica extends Cliente {
+public final class ClientePessoaFisica extends Cliente {
     private final String nome;
     private final LocalDate dataNascimento;
     private final CPF cpf;
