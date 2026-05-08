@@ -1,7 +1,7 @@
-package br.com.fiap.bank.plataformacredito.domain.entidades;
+package br.com.fiap.bank.plataformacredito.model.entidades;
 
-import br.com.fiap.bank.plataformacredito.domain.valueobjects.Documento;
-import br.com.fiap.bank.plataformacredito.domain.valueobjects.AvaliacaoRisco;
+import br.com.fiap.bank.plataformacredito.model.valueobjects.AvaliacaoRisco;
+import br.com.fiap.bank.plataformacredito.model.valueobjects.Documento;
 
 public abstract class Cliente extends BaseEntity {
     protected final Conta conta;

@@ -1,13 +1,13 @@
-package br.com.fiap.bank.plataformacredito.domain.factory;
+package br.com.fiap.bank.plataformacredito.model.factory;
 
 import java.time.LocalDate;
 
-import br.com.fiap.bank.plataformacredito.domain.entidades.Cliente;
-import br.com.fiap.bank.plataformacredito.domain.entidades.ClientePessoaFisica;
-import br.com.fiap.bank.plataformacredito.domain.entidades.ClientePessoaJuridica;
-import br.com.fiap.bank.plataformacredito.domain.entidades.Conta;
-import br.com.fiap.bank.plataformacredito.domain.valueobjects.CNPJ;
-import br.com.fiap.bank.plataformacredito.domain.valueobjects.CPF;
+import br.com.fiap.bank.plataformacredito.model.entidades.Cliente;
+import br.com.fiap.bank.plataformacredito.model.entidades.ClientePessoaFisica;
+import br.com.fiap.bank.plataformacredito.model.entidades.ClientePessoaJuridica;
+import br.com.fiap.bank.plataformacredito.model.entidades.Conta;
+import br.com.fiap.bank.plataformacredito.model.valueobjects.CNPJ;
+import br.com.fiap.bank.plataformacredito.model.valueobjects.CPF;
 
 public class ClienteFactory {
 
