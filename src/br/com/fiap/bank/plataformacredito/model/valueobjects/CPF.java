@@ -1,66 +1,51 @@
 package br.com.fiap.bank.plataformacredito.model.valueobjects;
 
-import java.util.Objects;
-
-public class CPF {
-    private final String numero;
-    private final Integer digitoVerificador;
+public final class CPF extends Documento {
 
     public CPF(String numero, Integer digitoVerificador) {
-        if (!isCpfValido(numero, digitoVerificador)) {
-            throw new IllegalArgumentException("CPF inválido");
-        }
-        this.numero = numero;
-        this.digitoVerificador = digitoVerificador;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public Integer getDigitoVerificador() {
-        return digitoVerificador;
+        super(numero, digitoVerificador);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
+    protected Boolean validar() {
+        // Verifica se o CPF informado é válido
+        if (numero == null || digitoVerificador == null) {
             return false;
-        if (!getClass().equals(obj.getClass()))
+        }
+
+        String cpf = numero + digitoVerificador;
+
+        if (cpf.length() != 11) {
             return false;
-        CPF other = (CPF) obj;
-        return Objects.equals(numero, other.numero)
-                && Objects.equals(digitoVerificador, other.digitoVerificador);
+        }
+
+        // Cálculo do primeiro dígito verificador
+        int soma = 0;
+        for (int i = 0; i < 9; i++) {
+            soma += (cpf.charAt(i) - '0') * (10 - i);
+        }
+        int resto = 11 - (soma % 11);
+        char digito1 = (resto == 10 || resto == 11) ? '0' : (char) (resto + '0');
+
+        // Cálculo do segundo dígito verificador
+        soma = 0;
+        for (int i = 0; i < 10; i++) {
+            soma += (cpf.charAt(i) - '0') * (11 - i);
+        }
+        resto = 11 - (soma % 11);
+        char digito2 = (resto == 10 || resto == 11) ? '0' : (char) (resto + '0');
+
+        // Verifica se os dígitos calculados conferem
+        return digito1 == cpf.charAt(9) && digito2 == cpf.charAt(10);
     }
 
     @Override
     public String toString() {
-        return String.format("%d-%d", numero, digitoVerificador);
-    }
-
-    private static boolean isCpfValido(String numero, Integer digitoVerificador) {
-        // Verifica se o CPF informado é válido
-        return true;
-        // if (numero == null || digitoVerificador == null) {
-        // return false;
-        // }
-
-        // // Verifica se o CPF é composto por números iguais
-        // if (numero.chars().allMatch(c -> c == numero.charAt(0))) {
-        // return false;
-        // }
-
-        // // calculo de digito verificador de CPF
-        // int soma = 0;
-        // for (int i = 0; i < 9; i++) {
-        // soma += numero.charAt(i) * (10 - i);
-        // }
-
-        // int resto = soma % 11;
-        // int digitoVerificadorCalculado = resto < 2 ? 0 : 11 - resto;
-        // return digitoVerificadorCalculado == digitoVerificador.intValue();
+        return String.format("%s.%s.%s-%s",
+                numero.substring(0, 3),
+                numero.substring(3, 6),
+                numero.substring(6, 9),
+                digitoVerificador);
     }
 
 }
