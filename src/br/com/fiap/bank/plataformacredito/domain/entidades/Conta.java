@@ -1,7 +1,7 @@
 package br.com.fiap.bank.plataformacredito.domain.entidades;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Currency;
 
 public class Conta extends BaseEntity {
     private final String agencia;
@@ -9,7 +9,7 @@ public class Conta extends BaseEntity {
     private final String digito;
     private final LocalDate dataAbertura;
 
-    private Currency saldo;
+    private BigDecimal saldo;
 
     public Conta(String agencia, String numero, String digito, LocalDate dataAbertura) {
         super();
@@ -35,7 +35,7 @@ public class Conta extends BaseEntity {
         return dataAbertura;
     }
 
-    public Currency getSaldo() {
+    public BigDecimal getSaldo() {
         return saldo;
     }
 }
