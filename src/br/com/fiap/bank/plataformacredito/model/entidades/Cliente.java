@@ -1,8 +1,8 @@
-package br.com.fiap.bank.plataformacredito.domain.entidades;
+package br.com.fiap.bank.plataformacredito.model.entidades;
 
 import java.util.UUID;
 
-import br.com.fiap.bank.plataformacredito.domain.valueobjects.AvaliacaoRisco;
+import br.com.fiap.bank.plataformacredito.model.valueobjects.AvaliacaoRisco;
 
 public class Cliente {
     private final UUID id;

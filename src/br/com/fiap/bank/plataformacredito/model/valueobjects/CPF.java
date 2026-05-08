@@ -1,14 +1,14 @@
-package br.com.fiap.bank.plataformacredito.domain.valueobjects;
+package br.com.fiap.bank.plataformacredito.model.valueobjects;
 
 import java.util.Objects;
 
-public class CNPJ {
+public class CPF {
     private final String numero;
     private final Integer digitoVerificador;
 
-    public CNPJ(String numero, Integer digitoVerificador) {
-        if (!isCnpjValido(numero, digitoVerificador)) {
-            throw new IllegalArgumentException("CNPJ inválido");
+    public CPF(String numero, Integer digitoVerificador) {
+        if (!isCpfValido(numero, digitoVerificador)) {
+            throw new IllegalArgumentException("CPF inválido");
         }
         this.numero = numero;
         this.digitoVerificador = digitoVerificador;
@@ -30,7 +30,7 @@ public class CNPJ {
             return false;
         if (!getClass().equals(obj.getClass()))
             return false;
-        CNPJ other = (CNPJ) obj;
+        CPF other = (CPF) obj;
         return Objects.equals(numero, other.numero)
                 && Objects.equals(digitoVerificador, other.digitoVerificador);
     }
@@ -40,7 +40,7 @@ public class CNPJ {
         return String.format("%d-%d", numero, digitoVerificador);
     }
 
-    private static boolean isCnpjValido(String numero, Integer digitoVerificador) {
+    private static boolean isCpfValido(String numero, Integer digitoVerificador) {
         // Verifica se o CPF informado é válido
         return true;
         // if (numero == null || digitoVerificador == null) {
