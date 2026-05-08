@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Proposta {
+public class Proposta extends BaseEntity {
 
     public static final String STATUS_PENDENTE = "PENDENTE";
     public static final String STATUS_APROVADA = "APROVADA";
@@ -13,19 +13,17 @@ public class Proposta {
 
     private final static Integer DIAS_VALIDADE_PADRAO_PROPOSTA = 7;
 
-    private final UUID id;
     private final Cliente cliente;
 
     private String codigo;
     private String status;
     private BigDecimal valorSolicitado;
     private Integer quantidadeParcelas;
-    private LocalDate dataCriacao;
     private LocalDate dataValidade;
     private String motivoRejeicao;
 
     public Proposta(String codigo, BigDecimal valorSolicitado, Integer quantidadeParcelas, Cliente cliente) {
-        this.id = UUID.randomUUID();
+        super();
         this.codigo = codigo;
         this.valorSolicitado = valorSolicitado;
         this.quantidadeParcelas = quantidadeParcelas;
@@ -33,10 +31,6 @@ public class Proposta {
         this.dataCriacao = LocalDate.now();
         this.dataValidade = this.dataCriacao.plusDays(DIAS_VALIDADE_PADRAO_PROPOSTA);
         this.status = "PENDENTE";
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public String getCodigo() {
@@ -53,10 +47,6 @@ public class Proposta {
 
     public Integer getQuantidadeParcelas() {
         return quantidadeParcelas;
-    }
-
-    public LocalDate getDataCriacao() {
-        return dataCriacao;
     }
 
     public LocalDate getDataValidade() {

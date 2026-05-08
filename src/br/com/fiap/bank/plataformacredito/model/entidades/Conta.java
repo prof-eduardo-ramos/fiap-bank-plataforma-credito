@@ -1,29 +1,22 @@
 package br.com.fiap.bank.plataformacredito.model.entidades;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Currency;
-import java.util.UUID;
 
-public class Conta {
-    private final UUID id;
+public class Conta extends BaseEntity {
     private final String agencia;
     private final String numero;
     private final String digito;
     private final LocalDate dataAbertura;
 
-    private Currency saldo;
+    private BigDecimal saldo;
 
     public Conta(String agencia, String numero, String digito, LocalDate dataAbertura) {
-        this.id = UUID.randomUUID();
+        super();
         this.agencia = agencia;
         this.numero = numero;
         this.digito = digito;
         this.dataAbertura = dataAbertura;
-    }
-
-    // Getters
-    public UUID getId() {
-        return id;
     }
 
     public String getAgencia() {
@@ -42,7 +35,7 @@ public class Conta {
         return dataAbertura;
     }
 
-    public Currency getSaldo() {
+    public BigDecimal getSaldo() {
         return saldo;
     }
 }
