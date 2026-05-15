@@ -1,7 +1,9 @@
-package br.com.fiap.bank.plataformacredito.model.entidades;
+package br.com.fiap.bank.plataformacredito.model.domain.entidades;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
+import br.com.fiap.bank.plataformacredito.model.domain.exception.ContaInvalidaException;
 
 public class Conta extends BaseEntity {
     private final String agencia;
@@ -13,6 +15,11 @@ public class Conta extends BaseEntity {
 
     public Conta(String agencia, String numero, String digito, LocalDate dataAbertura) {
         super();
+
+        if (agencia == null || numero == null || digito == null || dataAbertura == null) {
+            throw new ContaInvalidaException("Agência, número, dígito e data de abertura não podem ser nulos");
+        }
+
         this.agencia = agencia;
         this.numero = numero;
         this.digito = digito;

@@ -1,9 +1,11 @@
-package br.com.fiap.bank.plataformacredito.model.entidades;
+package br.com.fiap.bank.plataformacredito.model.domain.entidades;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Proposta extends BaseEntity {
+import br.com.fiap.bank.plataformacredito.model.domain.valueobjects.Validavel;
+
+public class Proposta extends BaseEntity implements Analisavel, Validavel {
 
     private final static Integer DIAS_VALIDADE_PADRAO_PROPOSTA = 7;
 
@@ -54,17 +56,26 @@ public class Proposta extends BaseEntity {
         return cliente;
     }
 
+    @Override
     public void aprovar() {
         this.status = StatusProposta.APROVADA;
     }
 
+    @Override
     public void rejeitar(String motivo) {
         this.status = StatusProposta.REJEITADA;
         this.motivoRejeicao = motivo;
     }
 
+    @Override
     public void cancelar() {
         this.status = StatusProposta.CANCELADA;
+    }
+
+    @Override
+    public Boolean validar() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'validar'");
     }
 
 }

@@ -1,4 +1,4 @@
-package br.com.fiap.bank.plataformacredito.model.entidades;
+package br.com.fiap.bank.plataformacredito.model.domain.entidades;
 
 public enum StatusProposta {
     PENDENTE,

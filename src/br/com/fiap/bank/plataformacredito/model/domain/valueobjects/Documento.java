@@ -1,13 +1,15 @@
-package br.com.fiap.bank.plataformacredito.model.valueobjects;
+package br.com.fiap.bank.plataformacredito.model.domain.valueobjects;
 
-public abstract class Documento {
+import br.com.fiap.bank.plataformacredito.model.domain.exception.DocumentoInvalidoException;
+
+public abstract class Documento implements Validavel {
 
     protected final String numero;
     protected final Integer digitoVerificador;
 
     public Documento(String numero, Integer digitoVerificador) {
         if (!validar()) {
-            throw new IllegalArgumentException("Documento inválido");
+            throw new DocumentoInvalidoException("Documento inválido");
         }
         this.numero = numero;
         this.digitoVerificador = digitoVerificador;
@@ -52,6 +54,7 @@ public abstract class Documento {
         return true;
     }
 
-    protected abstract Boolean validar();
+    @Override
+    public abstract Boolean validar();
 
 }

@@ -1,4 +1,4 @@
-package br.com.fiap.bank.plataformacredito.model.valueobjects;
+package br.com.fiap.bank.plataformacredito.model.domain.valueobjects;
 
 import java.util.InputMismatchException;
 
@@ -8,7 +8,7 @@ public final class CPF extends Documento {
     }
 
     @Override
-    protected Boolean validar() {
+    public Boolean validar() {
         if (this.numero == null || this.digitoVerificador == null) {
             return false;
         }

@@ -1,6 +1,6 @@
 package br.com.fiap.bank.plataformacredito.application;
 
-import br.com.fiap.bank.plataformacredito.model.entidades.Cliente;
+import br.com.fiap.bank.plataformacredito.model.domain.entidades.Cliente;
 import br.com.fiap.bank.plataformacredito.model.factory.ClienteFactory;
 
 public class PlataformaCreditoApplication {
