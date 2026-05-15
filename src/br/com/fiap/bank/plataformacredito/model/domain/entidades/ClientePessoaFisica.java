@@ -1,8 +1,8 @@
-package br.com.fiap.bank.plataformacredito.model.entidades;
+package br.com.fiap.bank.plataformacredito.model.domain.entidades;
 
 import java.time.LocalDate;
 
-import br.com.fiap.bank.plataformacredito.model.valueobjects.CPF;
+import br.com.fiap.bank.plataformacredito.model.domain.valueobjects.CPF;
 
 public class ClientePessoaFisica extends Cliente {
     private final String nome;

@@ -1,4 +1,4 @@
-package br.com.fiap.bank.plataformacredito.model.entidades;
+package br.com.fiap.bank.plataformacredito.model.domain.entidades;
 
 import java.time.LocalDate;
 import java.util.UUID;

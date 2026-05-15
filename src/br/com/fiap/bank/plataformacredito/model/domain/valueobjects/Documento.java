@@ -1,8 +1,8 @@
-package br.com.fiap.bank.plataformacredito.model.valueobjects;
+package br.com.fiap.bank.plataformacredito.model.domain.valueobjects;
 
 import java.util.Objects;
 
-public abstract class Documento {
+public abstract class Documento implements Validavel {
     protected final String numero;
     protected final Integer digitoVerificador;
 
@@ -31,8 +31,6 @@ public abstract class Documento {
         return digitoVerificador;
     }
 
-    protected abstract Boolean validar();
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -45,5 +43,8 @@ public abstract class Documento {
         return Objects.equals(numero, other.numero)
                 && Objects.equals(digitoVerificador, other.digitoVerificador);
     }
+
+    @Override
+    public abstract Boolean validar();
 
 }

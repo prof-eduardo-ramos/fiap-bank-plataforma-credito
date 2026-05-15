@@ -2,8 +2,8 @@ package br.com.fiap.bank.plataformacredito.application;
 
 import java.time.LocalDate;
 
-import br.com.fiap.bank.plataformacredito.model.entidades.Cliente;
-import br.com.fiap.bank.plataformacredito.model.entidades.Conta;
+import br.com.fiap.bank.plataformacredito.model.domain.entidades.Cliente;
+import br.com.fiap.bank.plataformacredito.model.domain.entidades.Conta;
 import br.com.fiap.bank.plataformacredito.model.factory.ClienteFactory;
 
 public class PlataformaCreditoApplication {

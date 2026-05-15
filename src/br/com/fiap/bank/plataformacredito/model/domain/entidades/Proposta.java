@@ -1,9 +1,9 @@
-package br.com.fiap.bank.plataformacredito.model.entidades;
+package br.com.fiap.bank.plataformacredito.model.domain.entidades;
 
-import static br.com.fiap.bank.plataformacredito.model.entidades.StatusProposta.APROVADA;
-import static br.com.fiap.bank.plataformacredito.model.entidades.StatusProposta.CANCELADA;
-import static br.com.fiap.bank.plataformacredito.model.entidades.StatusProposta.PENDENTE;
-import static br.com.fiap.bank.plataformacredito.model.entidades.StatusProposta.REJEITADA;
+import static br.com.fiap.bank.plataformacredito.model.domain.entidades.StatusProposta.APROVADA;
+import static br.com.fiap.bank.plataformacredito.model.domain.entidades.StatusProposta.CANCELADA;
+import static br.com.fiap.bank.plataformacredito.model.domain.entidades.StatusProposta.PENDENTE;
+import static br.com.fiap.bank.plataformacredito.model.domain.entidades.StatusProposta.REJEITADA;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

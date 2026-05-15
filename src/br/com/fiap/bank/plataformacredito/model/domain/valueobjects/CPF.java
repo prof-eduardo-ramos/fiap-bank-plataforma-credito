@@ -1,4 +1,4 @@
-package br.com.fiap.bank.plataformacredito.model.valueobjects;
+package br.com.fiap.bank.plataformacredito.model.domain.valueobjects;
 
 public final class CPF extends Documento {
 
@@ -7,7 +7,7 @@ public final class CPF extends Documento {
     }
 
     @Override
-    protected Boolean validar() {
+    public Boolean validar() {
         // Verifica se o CPF informado é válido
         if (numero == null || digitoVerificador == null) {
             return false;
