@@ -2,24 +2,26 @@ package br.com.fiap.bank.plataformacredito.model.domain.valueobjects;
 
 import java.util.Objects;
 
+import br.com.fiap.bank.plataformacredito.model.domain.exception.DocumentoInvalidoException;
+
 public abstract class Documento implements Validavel {
     protected final String numero;
     protected final Integer digitoVerificador;
 
     public Documento(String numero, Integer digitoVerificador) {
         if (numero == null || numero.isEmpty()) {
-            throw new IllegalArgumentException("Número do documento inválido");
+            throw new DocumentoInvalidoException("Número do documento inválido");
         }
 
         if (digitoVerificador == null) {
-            throw new IllegalArgumentException("Dígito verificador inválido");
+            throw new DocumentoInvalidoException("Dígito verificador inválido");
         }
 
         this.numero = numero;
         this.digitoVerificador = digitoVerificador;
 
         if (!validar()) {
-            throw new IllegalArgumentException("Documento inválido");
+            throw new DocumentoInvalidoException("Documento inválido");
         }
     }
 

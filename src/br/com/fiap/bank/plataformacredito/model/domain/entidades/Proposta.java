@@ -8,6 +8,8 @@ import static br.com.fiap.bank.plataformacredito.model.domain.entidades.StatusPr
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import br.com.fiap.bank.plataformacredito.model.domain.exception.PropostaInvalidaException;
+
 public class Proposta extends BaseEntity implements Analisavel {
 
     private final static Integer DIAS_VALIDADE_PADRAO_PROPOSTA = 7;
@@ -23,6 +25,23 @@ public class Proposta extends BaseEntity implements Analisavel {
 
     public Proposta(String codigo, BigDecimal valorSolicitado, Integer quantidadeParcelas, Cliente cliente) {
         super();
+
+        if (codigo == null || codigo.isEmpty()) {
+            throw new PropostaInvalidaException("Código da proposta inválido");
+        }
+
+        if (valorSolicitado == null || valorSolicitado.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new PropostaInvalidaException("Valor solicitado inválido");
+        }
+
+        if (quantidadeParcelas == null || quantidadeParcelas <= 0) {
+            throw new PropostaInvalidaException("Quantidade de parcelas inválida");
+        }
+
+        if (cliente == null) {
+            throw new PropostaInvalidaException("Cliente inválido");
+        }
+
         this.codigo = codigo;
         this.valorSolicitado = valorSolicitado;
         this.quantidadeParcelas = quantidadeParcelas;
