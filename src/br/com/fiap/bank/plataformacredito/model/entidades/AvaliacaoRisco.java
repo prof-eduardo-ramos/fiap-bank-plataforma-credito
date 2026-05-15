@@ -1,8 +1,8 @@
-package br.com.fiap.bank.plataformacredito.model.valueobjects;
+package br.com.fiap.bank.plataformacredito.model.entidades;
 
 import java.util.Objects;
 
-public class AvaliacaoRisco {
+public class AvaliacaoRisco extends BaseEntity {
     private final Integer scoreCredito;
     private final String nivelEndividamentoSCR;
     private final Boolean possuiHistoricoInadimplencia;

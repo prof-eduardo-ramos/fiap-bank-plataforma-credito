@@ -8,7 +8,7 @@ import static br.com.fiap.bank.plataformacredito.model.entidades.StatusProposta.
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Proposta extends BaseEntity {
+public class Proposta extends BaseEntity implements Analisavel {
 
     private final static Integer DIAS_VALIDADE_PADRAO_PROPOSTA = 7;
 
@@ -59,15 +59,18 @@ public class Proposta extends BaseEntity {
         return cliente;
     }
 
+    @Override
     public void aprovar() {
         this.status = APROVADA;
     }
 
+    @Override
     public void rejeitar(String motivo) {
         this.status = REJEITADA;
         this.motivoRejeicao = motivo;
     }
 
+    @Override
     public void cancelar() {
         this.status = CANCELADA;
     }

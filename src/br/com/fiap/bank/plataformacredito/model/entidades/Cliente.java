@@ -1,6 +1,5 @@
 package br.com.fiap.bank.plataformacredito.model.entidades;
 
-import br.com.fiap.bank.plataformacredito.model.valueobjects.AvaliacaoRisco;
 import br.com.fiap.bank.plataformacredito.model.valueobjects.Documento;
 
 public abstract class Cliente extends BaseEntity {
