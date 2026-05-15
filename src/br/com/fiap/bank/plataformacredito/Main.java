@@ -1,9 +1,9 @@
 package br.com.fiap.bank.plataformacredito;
 
-import br.com.fiap.bank.plataformacredito.presentation.PlataformaCreditoPresentation;
+import br.com.fiap.bank.plataformacredito.presentation.PlataformaCreditoController;
 
 public class Main {
     public static void main(String[] args) {
-        PlataformaCreditoPresentation.novaInstancia().iniciar();
+        PlataformaCreditoController.novaInstancia().iniciar();
     }
 }

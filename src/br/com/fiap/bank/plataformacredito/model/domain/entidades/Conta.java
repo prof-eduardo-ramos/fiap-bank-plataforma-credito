@@ -6,14 +6,16 @@ import java.time.LocalDate;
 import br.com.fiap.bank.plataformacredito.model.domain.exception.ContaInvalidaException;
 
 public class Conta extends BaseEntity {
+
     private final String agencia;
     private final String numero;
     private final String digito;
     private final LocalDate dataAbertura;
+    private final TipoContaEnum tipoConta;
 
     private BigDecimal saldo;
 
-    public Conta(String agencia, String numero, String digito, LocalDate dataAbertura) {
+    public Conta(String agencia, String numero, String digito, LocalDate dataAbertura, TipoContaEnum tipoConta) {
         super();
 
         if (agencia == null || numero == null || digito == null || dataAbertura == null) {
@@ -24,6 +26,7 @@ public class Conta extends BaseEntity {
         this.numero = numero;
         this.digito = digito;
         this.dataAbertura = dataAbertura;
+        this.tipoConta = tipoConta;
     }
 
     public String getAgencia() {
@@ -44,5 +47,9 @@ public class Conta extends BaseEntity {
 
     public BigDecimal getSaldo() {
         return saldo;
+    }
+
+    public TipoContaEnum getTipoConta() {
+        return tipoConta;
     }
 }
